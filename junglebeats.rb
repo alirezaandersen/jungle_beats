@@ -69,27 +69,6 @@ class List_Beats
     current
   end
 
-  #returns the last node of a specified list
-  def getEnd(list)
-    if list.nil?
-    else
-      while list.next_node != nil
-        list = list.next_node
-      end
-    end
-    list
-  end
-
-  #returns the node at the given index for the linked list
-  def atIndex(index)
-    current = @head
-    (index).times do
-      current = current.next_node
-    end
-    #puts "current.data at index #{index} is #{current.data}"
-    current
-  end
-
   #returns true if the specified word is in the linked list
   def include?(word)
     if !@head.nil?
@@ -131,6 +110,27 @@ class List_Beats
 
     #return first node of list or nil if no valid words
     first_node
+  end
+
+  #returns the last node of a specified list
+  def getEnd(list)
+    if list.nil?
+    else
+      while list.next_node != nil
+        list = list.next_node
+      end
+    end
+    list
+  end
+
+  #returns the node at the given index for the linked list
+  def atIndex(index)
+    current = @head
+    (index).times do
+      current = current.next_node
+    end
+    #puts "current.data at index #{index} is #{current.data}"
+    current
   end
 
   def append(add_end)
@@ -223,8 +223,7 @@ class List_Beats
       sayWithSpeedAndVoice = "say -r #{@speed} -v #{@voice} \"" + all + "\""
       `#{sayWithSpeedAndVoice}`
 
-#     sayCmd = "say \"#{str}\""
-#     `#{sayCmd}`
+
     end
   end
 
@@ -250,40 +249,7 @@ class List_Beats
   end
 
 end
-=begin
-puts List_Beats::VALIDBEATS.inspect
-#list = List_Beats.new("Invalid")
-#puts list.inspect
-list = List_Beats.new("Miss I upp all baNG iss yO iPp MA ma ads ha fewa HA")
-puts list.all
-list.append("cHOw kneE Mississippi Ma ma")
-puts list.all
-list.prepend("yES")
-puts list.all
-list.prepend("oh")
-puts list.all
-list.voice = "Alice"
-list.pop(1)
-list.prepend("ching chow knee")
-#list.play
-puts list.all
-list.insert(0,"knee")
-puts list.all
-list.insert(1,"how")
-#list.speed = -1
-puts list.all
-list.insert(5,"na Mississippi ma")
-puts list.all
-result = list.include?"chow"
-puts "is chow included in the list? list.include?\"chow\" = " + result.to_s
-result = list.include?"notInList"
-puts "is notInList included in the list? list.include?\"notInList\" = " + result.to_s
-result = list.find("chow")
-puts "is chow found in the list? list.find(\"chow\") = " + result.to_s
-result = list.find("notInList")
-puts "is notInList found in the list? list.find(\"notInList\") = " + result.to_s
-last_node = list.tail
-puts "last_node.data = " + last_node.data
-puts list.all
-puts list.count
-=end
+
+list = List_Beats.new("dee deep dee")
+list.play
+list.all

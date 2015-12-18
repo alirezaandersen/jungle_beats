@@ -1,9 +1,12 @@
+require 'simplecov'
+SimpleCov.start
 require 'minitest'
 require 'minitest/autorun'
 require 'minitest/pride'
 require 'pry'
 
-require_relative 'junglebeats'
+
+require_relative '../lib/junglebeats'
 require_relative 'node'
 
 class JungleBeatsTest < Minitest::Test
